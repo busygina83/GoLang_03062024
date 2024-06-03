@@ -1,0 +1,23 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "SimpleHTTP_API",
+    "collectionId": "266030ce-b000-4067-a9bf-7b6ccb203f36",
+    "dateExported": "2024-06-03T12:06:40.522Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ae2370e2-e348-4e8a-a93e-8e393ed5577f",
+            "colId": "266030ce-b000-4067-a9bf-7b6ccb203f36",
+            "containerId": "",
+            "name": "Get root URL",
+            "url": "http://127.0.0.1:5000/",
+            "method": "DELETE",
+            "sortNum": 10000,
+            "created": "2024-06-03T12:02:45.510Z",
+            "modified": "2024-06-03T12:06:12.917Z",
+            "headers": []
+        }
+    ],
+    "ref": "c4rTlFqEEN4Q8wpUy7BhrrpnyE3vbLePiCw4wx0lvTMtHFBmcmC1VVZKIbSQA8dev__PaQZzTY8msZIoT5KfVA"
+}
