@@ -175,7 +175,7 @@ func (ts *taskServer) deleteTaskHandler(w http.ResponseWriter, r *http.Request, 
 
 func (ts *taskServer) deleteAllTaskHandler(w http.ResponseWriter, r *http.Request){
 	log.Printf("Handling delete all tasks at %s\n", r.URL.Path)
-
+	log.Printf("http.ResponseWriter is %s\n", w.Header())
 	ts.store.DeleteAllTasks()
 }
 
