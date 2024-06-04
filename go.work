@@ -3,6 +3,8 @@ go 1.22.3
 use (
 	./JsonFiles
 	./SimpleHTTP_API
+	./SqliteOne_API
 	./TaskStoreAPI
+	./Trash_API_GorillaMux
 	./hello
 )
