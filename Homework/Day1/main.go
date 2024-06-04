@@ -23,78 +23,84 @@ import (
 	"math/rand"
 	"net/http"
 	"strconv"
-	"github.com/busygina83/GoLang_03062024/Homework/Day1/taskstore"
 )
 
 var SERVERPORT = 3000
-var first *int
-var second *int
+var first int = 0
+var second int = 0
+var result int = 0
 
-//w - responseWriter (куда писать ответ)
-//r - request (откуда брать запрос)
-// Функция-обработчик(Handler)
-func PutFirst(w http.ResponseWriter, r *http.Request) {
-	first := rand.Intn(100)
-	fmt.Fprintf(w, "set first variable to %v", first)
+type Result struct {
+	First  int    `json:"*first"`
+	Second int    `json:"*second"`
+	Result int 	  `json:"result"`
+}
+var ResultJson Result
+
+func SetJson(first int, second int, result int){
+	ResultJson = Result{
+		First: first,
+		Second: second,
+		Result: result,
+	}
 }
 
-func PutSecond(w http.ResponseWriter, r *http.Request) {
-	second := rand.Intn(100)
-	fmt.Fprintf(w, "set second variable to %v", second)
+func GetRoot(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "This is MAIN page\n")
 }
 
-func PutAdd(w http.ResponseWriter, r *http.Request) {
-	if first == nil {
+func GetInfo(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, "first variable set to %v\n", first)
+	fmt.Fprintf(w, "second variable set to %v\n", second)
+}
+
+func SetFirst(w http.ResponseWriter, r *http.Request){
+	first = rand.Intn(100)
+	fmt.Fprintf(w, "first variable set to %d", first)
+}
+
+func SetSecond(w http.ResponseWriter, r *http.Request) {
+	second = rand.Intn(100)
+	fmt.Fprintf(w, "second variable set to %d", second)
+}
+
+func SetIs(w http.ResponseWriter, r *http.Request, s string) {
+	if first == 0 {
 		fmt.Fprintf(w, "first variable not set - GET http://127.0.0.1:1234/first")
-	} else if second == nil {
+	} else if second == 0 {
 		fmt.Fprintf(w, "second variable not set - GET http://127.0.0.1:1234/second")
-	}
-}
-
-
-func (ts *taskServer) taskHandler(w http.ResponseWriter, r *http.Request) {
-	//Request is only '/task/' URL without ID
-	if r.URL.Path == "/task/" {
-		if r.Method == http.MethodPost {
-			ts.createTaskHandler(w, r)
-		} else if r.Method == http.MethodGet{
-			ts.getAllTaskHandler(w, r)
-		} else if r.Method == http.MethodDelete{
-			ts.deleteAllTaskHandler(w, r)
-		} else {
-			http.Error(w, fmt.Sprintf("expect method GET, POST, DELETE at '/task', got %v", r.Method), http.StatusMethodNotAllowed)
-			return
-		}
-		
 	} else {
-		// Request has an ID as '/task/<id>' URL
-		path := strings.Trim(r.URL.Path, "/")
-		pathParts := strings.Split(path, "/")
-		if len(pathParts) < 2{
-			http.Error(w, "expect 'task/<id>' in task handler", http.StatusBadRequest)
-			return
-		}
-		id, err := strconv.Atoi(pathParts[1])
-		if err != nil{
-			http.Error(w, err.Error(), http.StatusBadRequest)
-			return
-		}
-		if r.Method == http.MethodGet {
-			ts.getTaskHandler(w, r, int(id))
-		} else if r.Method == http.MethodDelete{
-			ts.deleteTaskHandler(w, r, int(id))
-		} else {
-			http.Error(w, fmt.Sprintf("expect method GET, DELETE at '/task<id>', got %v", r.Method), http.StatusMethodNotAllowed)
-			return
-		}
+		GetInfo(w,r)
+		SetJson(first, second, result)
+		fmt.Fprintf(w, "first %s second: %d", s, ResultJson)
 	}
 }
 
+func ExecAdd(w http.ResponseWriter, r *http.Request) {
+	result = first + second
+	SetIs(w,r,"+")
+}
+func ExecSub(w http.ResponseWriter, r *http.Request) {
+	result = first - second
+	SetIs(w,r,"-")
+}
+func ExecMul(w http.ResponseWriter, r *http.Request) {
+	result = first * second
+	SetIs(w,r,"*")
+}
+func ExecDiv(w http.ResponseWriter, r *http.Request) {
+	if second == 0 {result = 0} else {result = first / second}
+	SetIs(w,r,"/")
+}
 
 func main() {
-	http.HandleFunc("/first", PutFirst)
-	http.HandleFunc("/second", PutSecond)
-
-	http.HandleFunc("/add", PutAdd)
-	log.Fatal(http.ListenAndServe("127.0.0.1:" + strconv.Itoa(SERVERPORT), nil)) // Запускаем web-сервер в режиме "слушания"
+	http.HandleFunc("/", GetRoot)
+	http.HandleFunc("/info/", GetInfo)
+	http.HandleFunc("/first/", SetFirst)
+	http.HandleFunc("/second/", SetSecond)
+	http.HandleFunc("/add/", ExecAdd)
+	http.HandleFunc("/sub/", ExecSub)
+	http.HandleFunc("/mul/", ExecMul)
+	http.HandleFunc("/div/", ExecDiv)
+	log.Fatal(http.ListenAndServe("127.0.0.1:" + strconv.Itoa(SERVERPORT), nil))
 }
