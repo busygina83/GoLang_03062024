@@ -1,6 +1,7 @@
 go 1.22.3
 
 use (
+	./Homework/Day1
 	./JsonFiles
 	./SimpleHTTP_API
 	./SqliteOne_API
