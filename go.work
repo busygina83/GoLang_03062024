@@ -2,10 +2,13 @@ go 1.22.3
 
 use (
 	./Homework/Day1
+	./Homework/Day2
+	./ImproveTrash_API
 	./JsonFiles
 	./SimpleHTTP_API
 	./SqliteOne_API
 	./TaskStoreAPI
+	./TaskStoreAPI_Gin
 	./Trash_API_GorillaMux
 	./hello
 )

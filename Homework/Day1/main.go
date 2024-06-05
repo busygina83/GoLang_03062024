@@ -31,8 +31,8 @@ var second int = 0
 var result int = 0
 
 type Result struct {
-	First  int    `json:"*first"`
-	Second int    `json:"*second"`
+	First  int    `json:"first"`
+	Second int    `json:"second"`
 	Result int 	  `json:"result"`
 }
 var ResultJson Result
