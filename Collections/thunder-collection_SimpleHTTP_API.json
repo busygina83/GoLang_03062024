@@ -1,0 +1,23 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "SimpleHTTP_API",
+    "dateExported": "2023-11-02T14:25:58.347Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "67aeb0fb-9919-4d66-8eab-1be832d9e10b",
+            "colId": "a148d416-dd26-4758-8ce4-260025c871fd",
+            "containerId": "",
+            "name": "Get root URL",
+            "url": "https://hello-aor9l895.b4a.run:8080/api/v1/reconds",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-30T13:19:04.690Z",
+            "modified": "2023-11-01T15:08:12.694Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

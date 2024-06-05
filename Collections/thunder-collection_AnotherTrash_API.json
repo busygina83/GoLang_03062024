@@ -1,0 +1,37 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "AnotherTrash_API",
+    "dateExported": "2023-11-02T14:26:47.403Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "ca9febc3-ae5f-482c-b82b-2bd3e0b778f2",
+            "colId": "dbfc69cf-3f7b-4adc-a44b-2a210128c776",
+            "containerId": "",
+            "name": "get all pizzas",
+            "url": "http://localhost:8080/pizzas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-10-31T12:44:47.549Z",
+            "modified": "2023-10-31T13:08:14.922Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "cefa6f76-3eb3-418d-9bfd-47f334b08182",
+            "colId": "dbfc69cf-3f7b-4adc-a44b-2a210128c776",
+            "containerId": "",
+            "name": "get pizza by ID",
+            "url": "http://localhost:8080/pizza/2",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-10-31T12:44:47.550Z",
+            "modified": "2023-10-31T12:51:46.452Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}

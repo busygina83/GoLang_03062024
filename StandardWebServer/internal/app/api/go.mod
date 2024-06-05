@@ -1,4 +1,4 @@
-module StandardWebServer
+module StandardWebServer/internal/app/api
 
 go 1.22.3
 
