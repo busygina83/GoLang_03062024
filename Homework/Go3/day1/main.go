@@ -103,7 +103,7 @@ func main() {
 	loadTemplates()
 	http.HandleFunc("/", showCV)
 
-	err := http.ListenAndServe(":1313", nil)
+	err := http.ListenAndServe("127.0.0.1:1313", nil)
 	if err != nil {
 		log.Fatal(err)
 	}
