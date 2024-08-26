@@ -1,0 +1,1 @@
+1. Создать с помощью `sqlc` CRUD для Entry и Transfers

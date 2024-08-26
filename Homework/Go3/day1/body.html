@@ -1,0 +1,75 @@
+{{define "body"}}
+
+    <div class="container">
+        <h1> Резюме </h1>
+
+        <p> На позицию: {{ .Position }}
+
+        <header class="my-4">
+            <h1>{{ .FirstName }} {{ .LastName }}</h1>
+            <p>Email: {{ .Email }}</p>
+            <p>Phone: {{ .Phone }}</p>
+        </header>
+
+        <section>
+            <h2>Опыт работы</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Компания</th>
+                        <th>Позиция</th>
+                        <th>Даты</th>
+                        <th>Обязанности</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Experience }}
+                        <tr>
+                            <td>{{ .Company }}</td>
+                            <td>{{ .Position }}</td>
+                            <td>{{ .Begin }} - {{ .End }}</td>
+                            <td>{{ .Function }}</td>
+                        </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+
+
+        </section>
+
+        <br>
+        <section>
+
+            <h2>Образование</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Учебный центр</th>
+                        <th>Курс</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Education }}
+                        <tr>
+                            <td>{{ .UC }}</td>
+                            <td>{{ .Spec }}</td>
+                        </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+
+        </section>
+        <br>
+
+        <section>
+            <h2>Навыки</h2>
+            {{ range .Skills }}
+                <tr>
+                    <td>- {{ .SkillName }}</td><br>
+                </tr>
+            {{ end }}
+        </section>
+    </div>
+
+{{ end }}

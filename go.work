@@ -1,8 +1,9 @@
 go 1.22.3
 
 use (
-	./Homework/Day1
-	./Homework/Day2
+	./Homework/Go2/Day1
+	./Homework/Go2/Day2
+	./Homework/Go3/day1
 	./ImproveTrash_API
 	./JsonFiles
 	./SimpleHTTP_API
