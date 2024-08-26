@@ -7,7 +7,7 @@ import (
 	"github.com/jackc/pgx/v5/pgxpool"
 	"bankstore/api"
 	db "bankstore/db/sqlc"
-	"github.com/busygina83/bankstore/util"
+	"bankstore/util"
 )
 
 func main() {
