@@ -1,0 +1,138 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Bankstore",
+    "dateExported": "2023-11-17T18:00:39.853Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "b7ced95e-0eb8-435b-a1fa-57df5be2ced4",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Create account",
+            "url": "{{host}}{{port}}/accounts",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2023-11-16T12:17:38.225Z",
+            "modified": "2023-11-16T13:18:06.099Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"owner\": \"Petr Ivanov\",\n  \"currency\": \"EUR\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8723743f-fdf2-47bf-a90a-b3c8d5b006aa",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Get account by id",
+            "url": "{{host}}{{port}}/accounts/3",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-11-16T13:07:16.813Z",
+            "modified": "2023-11-17T09:01:02.651Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "8989ab2d-8548-4a6c-8c42-f5b2a3fbc563",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Update account by id",
+            "url": "{{host}}{{port}}/accounts",
+            "method": "PUT",
+            "sortNum": 22500,
+            "created": "2023-11-17T09:00:12.648Z",
+            "modified": "2023-11-17T09:21:11.659Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"id\": 3,\n  \"balance\": 400\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c77de261-b642-4611-8e1a-a9abb7b76c51",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Delete account by id",
+            "url": "{{host}}{{port}}/accounts/7",
+            "method": "DELETE",
+            "sortNum": 25000,
+            "created": "2023-11-17T08:54:07.288Z",
+            "modified": "2023-11-17T08:58:57.592Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "29020477-ea85-4875-b9f7-4335c6b43454",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Get accounts",
+            "url": "{{host}}{{port}}/accounts/?page_id=0&page_size=7",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2023-11-17T08:24:21.997Z",
+            "modified": "2023-11-17T08:36:23.846Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page_id",
+                    "value": "0",
+                    "isPath": false
+                },
+                {
+                    "name": "page_size",
+                    "value": "7",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "6c308fe9-0e69-43eb-8513-9390b387a4b3",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Create user",
+            "url": "{{host}}{{port}}/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-11-17T12:04:09.566Z",
+            "modified": "2023-11-17T17:51:24.883Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"Ivan4\",\n  \"full_name\": \"Ivan Petrov\",\n  \"email\": \"my4@email.com\",\n  \"password\": \"secret4\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "d388718c-a56b-410f-b6b8-b2b61e1f712e",
+            "colId": "21ef5fcf-d0a4-4e88-9590-8f5983bd4efa",
+            "containerId": "",
+            "name": "Create token user",
+            "url": "{{host}}{{port}}/users/login",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2023-11-17T14:30:50.593Z",
+            "modified": "2023-11-17T17:51:31.804Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\": \"Ivan4\",\n  \"password\": \"secret4\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
